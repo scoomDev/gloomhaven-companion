@@ -16,24 +16,24 @@ security:
         api:
             pattern: ^/api/
             stateless: true
-            anonymous: true
+            anonymous: false
             provider: users
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-        main:
+        login:
+            pattern: ^/login
             stateless: true
             anonymous: true
             provider: users
             json_login:
-                check_path: /authentication_token
-                username_path: username
-                password_path: password
+                check_path: /login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
+        register:
+            pattern:  ^/register
+            stateless: true
+            anonymous: true
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -44,5 +44,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY  }
+         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY  }
+         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY  }
