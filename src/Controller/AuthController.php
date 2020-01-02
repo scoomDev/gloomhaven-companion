@@ -3,31 +3,49 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AuthController extends AbstractController
 {
+	private $em;
+
+	public function __construct(EntityManagerInterface $entityManager)
+	{
+		$this->em = $entityManager;
+	}
+
+	/**
+	 * @Route(
+	 *     name="user_register",
+	 *     path="/api/register",
+	 *     methods={"POST"}
+	 * )
+	 *
+	 * @param Request $request
+	 * @param UserPasswordEncoderInterface $encoder
+	 * @return Response
+	 */
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
-        $em = $this->getDoctrine()->getManager();
+        $username = $request->get('username');
+        $password = $request->get('password');
 
-        $username = $request->request->get('username');
-        $password = $request->request->get('password');
+        if (!$username || !$password) return new JsonResponse(['error' => 'Veuillez remplir les champs requis']);
+        if ($this->em->getRepository(User::class)->findBy(['username' => $username])) return new JsonResponse(['error' => 'Ce nom d\'utilisateur est déjà utilisé']);
 
         $user = new User();
-        $user->setUsername($username);
-        $user->setPassword($encoder->encodePassword($user, $password));
-        $em->persist($user);
-        $em->flush();
+		$user->setUsername($username);
+		$user->setPassword($encoder->encodePassword($user, $password));
 
-        return new Response(sprintf('User %s successfully created', $user->getUsername()));
-    }
+		$this->em->persist($user);
+		$this->em->flush();
 
-    public function api()
-    {
-        return new Response(sprintf('Logged in as %s', $this->getUser()->getUsername()));
+		return new JsonResponse(['success' => 'Utilisateur bien enregistré']);
     }
 }
