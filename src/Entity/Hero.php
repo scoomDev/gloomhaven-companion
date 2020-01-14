@@ -3,12 +3,18 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(subresourceOperations={
+		"api_gameCharacter_hero_get_subresource"={
+ *         "method"="GET",
+ *         "normalization_context"={"groups"={"heroGameCharacter"}}
+ *     }
+ *	 })
  * @ORM\Entity(repositoryClass="App\Repository\HeroRepository")
  */
 class Hero
@@ -43,6 +49,7 @@ class Hero
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\GameCharacter", inversedBy="heroes")
      * @ORM\JoinColumn(nullable=false)
+	 * @ApiSubresource()
      */
     private $GameCharacter;
 
