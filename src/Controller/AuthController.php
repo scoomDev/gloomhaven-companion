@@ -36,7 +36,6 @@ class AuthController extends AbstractController
         $username = $request->get('username');
         $password = $request->get('password');
 
-        if (!$username || !$password) return new JsonResponse(['error' => 'Veuillez remplir les champs requis']);
         if ($this->em->getRepository(User::class)->findBy(['username' => $username])) return new JsonResponse(['error' => 'Ce nom d\'utilisateur est déjà utilisé']);
 
         $user = new User();
