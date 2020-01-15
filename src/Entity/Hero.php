@@ -28,21 +28,21 @@ class Hero
 
     /**
 	 * @Groups("hero")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $level;
 
     /**
 	 * @Groups("hero")
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $gold;
 
     /**
 	 * @Groups("hero")
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="json", nullable=true)
      */
-    private $objects;
+    private $objects = [];
 
     /**
 	 * @Groups("hero")
@@ -97,17 +97,17 @@ class Hero
         return $this;
     }
 
-    public function getObjects(): ?string
-    {
-        return $this->objects;
-    }
+	public function getObjects(): ?array
+	{
+		return $this->objects;
+	}
 
-    public function setObjects(?string $objects): self
-    {
-        $this->objects = $objects;
+	public function setObjects(?array $objects): self
+	{
+		$this->objects = $objects;
 
-        return $this;
-    }
+		return $this;
+	}
 
     public function getGameCharacter(): ?GameCharacter
     {
