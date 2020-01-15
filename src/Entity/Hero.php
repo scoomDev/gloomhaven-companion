@@ -3,23 +3,17 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiSubresource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(subresourceOperations={
-		"api_gameCharacter_hero_get_subresource"={
- *         "method"="GET",
- *         "normalization_context"={"groups"={"heroGameCharacter"}}
- *     }
- *	 })
+ * @ApiResource(normalizationContext={"groups"={"hero"}})
  * @ORM\Entity(repositoryClass="App\Repository\HeroRepository")
  */
 class Hero
 {
     /**
+	 * @Groups("hero")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -27,46 +21,40 @@ class Hero
     private $id;
 
     /**
+	 * @Groups("hero")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+	 * @Groups("hero")
      * @ORM\Column(type="integer")
      */
     private $level;
 
     /**
+	 * @Groups("hero")
      * @ORM\Column(type="integer", nullable=true)
      */
     private $gold;
 
     /**
+	 * @Groups("hero")
      * @ORM\Column(type="text", nullable=true)
      */
     private $objects;
 
     /**
+	 * @Groups("hero")
      * @ORM\ManyToOne(targetEntity="App\Entity\GameCharacter", inversedBy="heroes")
      * @ORM\JoinColumn(nullable=false)
-	 * @ApiSubresource()
      */
     private $GameCharacter;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="heroes")
-     */
-    private $users;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="heroes")
      */
     private $team;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -129,34 +117,6 @@ class Hero
     public function setGameCharacter(?GameCharacter $GameCharacter): self
     {
         $this->GameCharacter = $GameCharacter;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addHero($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeHero($this);
-        }
 
         return $this;
     }

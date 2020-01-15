@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -41,17 +39,6 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
-
-    /**
-	 * @Groups({"user"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Hero", inversedBy="users")
-     */
-    private $heroes;
-
-    public function __construct()
-    {
-        $this->heroes = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -105,9 +92,9 @@ class User implements UserInterface
 	 * @return string|null The salt
 	 */
 	public function getSalt()
-                        	{
-                        		// TODO: Implement getSalt() method.
-                        	}
+	{
+		// TODO: Implement getSalt() method.
+	}
 
 	/**
 	 * Removes sensitive data from the user.
@@ -116,33 +103,7 @@ class User implements UserInterface
 	 * the plain-text password is stored on this object.
 	 */
 	public function eraseCredentials()
-                        	{
-                        		// TODO: Implement eraseCredentials() method.
-                        	}
-
-    /**
-     * @return Collection|Hero[]
-     */
-    public function getHeroes(): Collection
-    {
-        return $this->heroes;
-    }
-
-    public function addHero(Hero $hero): self
-    {
-        if (!$this->heroes->contains($hero)) {
-            $this->heroes[] = $hero;
-        }
-
-        return $this;
-    }
-
-    public function removeHero(Hero $hero): self
-    {
-        if ($this->heroes->contains($hero)) {
-            $this->heroes->removeElement($hero);
-        }
-
-        return $this;
-    }
+	{
+		// TODO: Implement eraseCredentials() method.
+	}
 }
