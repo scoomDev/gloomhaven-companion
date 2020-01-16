@@ -56,6 +56,18 @@ class Hero
      */
     private $team;
 
+    /**
+	 * @Groups("hero")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $experience;
+
+    /**
+	 * @Groups("hero")
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $note;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -98,16 +110,16 @@ class Hero
     }
 
 	public function getObjects(): ?array
-	{
-		return $this->objects;
-	}
+                  	{
+                  		return $this->objects;
+                  	}
 
 	public function setObjects(?array $objects): self
-	{
-		$this->objects = $objects;
-
-		return $this;
-	}
+                  	{
+                  		$this->objects = $objects;
+                  
+                  		return $this;
+                  	}
 
     public function getGameCharacter(): ?GameCharacter
     {
@@ -129,6 +141,30 @@ class Hero
     public function setTeam(?Team $team): self
     {
         $this->team = $team;
+
+        return $this;
+    }
+
+    public function getExperience(): ?string
+    {
+        return $this->experience;
+    }
+
+    public function setExperience(?string $experience): self
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }
