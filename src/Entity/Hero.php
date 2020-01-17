@@ -14,6 +14,7 @@ class Hero
 {
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -22,24 +23,28 @@ class Hero
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="string")
      */
     private $level;
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="string", nullable=true)
      */
     private $gold;
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="json", nullable=true)
      */
     private $objects = [];
@@ -58,12 +63,14 @@ class Hero
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $experience;
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\Column(type="text", nullable=true)
      */
     private $note;

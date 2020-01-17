@@ -7,19 +7,16 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(subresourceOperations={
-		"api_heroes_team_get_subresource"={
- *     		"method"="GET",
- * 			"normalization_context"={"groups"={"findHeroes"}}
- *	 	}
- *	 })
+ * @ApiResource(normalizationContext={"groups"={"team"}})
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
 class Team
 {
     /**
+	 * @Groups("team")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -27,21 +24,25 @@ class Team
     private $id;
 
     /**
+	 * @Groups("team")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+	 * @Groups("team")
      * @ORM\Column(type="integer", nullable=true)
      */
     private $reputation;
 
     /**
+	 * @Groups("team")
      * @ORM\Column(type="text", nullable=true)
      */
     private $achievement;
 
     /**
+	 * @Groups("team")
      * @ORM\OneToMany(targetEntity="App\Entity\Hero", mappedBy="team")
 	 * @ApiSubresource
      */
