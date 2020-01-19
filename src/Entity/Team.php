@@ -37,16 +37,16 @@ class Team
 
     /**
 	 * @Groups("team")
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $achievement;
-
-    /**
-	 * @Groups("team")
      * @ORM\OneToMany(targetEntity="App\Entity\Hero", mappedBy="team")
 	 * @ApiSubresource
      */
-    private $heroes;
+    private $heroes = [];
+
+    /**
+     * @Groups("team")
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $achievements = [];
 
     public function __construct()
     {
@@ -82,18 +82,6 @@ class Team
         return $this;
     }
 
-    public function getAchievement(): ?string
-    {
-        return $this->achievement;
-    }
-
-    public function setAchievement(?string $achievement): self
-    {
-        $this->achievement = $achievement;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Hero[]
      */
@@ -121,6 +109,18 @@ class Team
                 $hero->setTeam(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAchievements(): ?array
+    {
+        return $this->achievements;
+    }
+
+    public function setAchievements(?array $achievements): self
+    {
+        $this->achievements = $achievements;
 
         return $this;
     }

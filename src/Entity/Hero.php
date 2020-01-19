@@ -117,16 +117,16 @@ class Hero
     }
 
 	public function getObjects(): ?array
-                  	{
-                  		return $this->objects;
-                  	}
+    {
+        return $this->objects;
+    }
 
 	public function setObjects(?array $objects): self
-                  	{
-                  		$this->objects = $objects;
-                  
-                  		return $this;
-                  	}
+    {
+        $this->objects = $objects;
+
+        return $this;
+    }
 
     public function getGameCharacter(): ?GameCharacter
     {
