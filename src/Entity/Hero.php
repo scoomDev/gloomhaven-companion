@@ -51,6 +51,7 @@ class Hero
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
      * @ORM\ManyToOne(targetEntity="App\Entity\GameCharacter", inversedBy="heroes")
      * @ORM\JoinColumn(nullable=false)
      */

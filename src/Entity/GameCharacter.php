@@ -9,12 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(normalizationContext={"groups"={"hero"}})
+ * @ApiResource(normalizationContext={"groups"={"game_characters"}})
  * @ORM\Entity(repositoryClass="App\Repository\GameCharacterRepository")
  */
 class GameCharacter
 {
     /**
+	 * @Groups("game_characters")
+	 * @Groups("team")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -23,6 +25,8 @@ class GameCharacter
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
+	 * @Groups("game_characters")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -35,12 +39,14 @@ class GameCharacter
 
     /**
 	 * @Groups("hero")
+	 * @Groups("game_characters")
      * @ORM\Column(type="text")
      */
     private $life;
 
     /**
 	 * @Groups("hero")
+	 * @Groups("game_characters")
      * @ORM\Column(type="integer")
      */
     private $maxCard;
