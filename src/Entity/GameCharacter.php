@@ -17,6 +17,7 @@ class GameCharacter
     /**
 	 * @Groups("game_characters")
 	 * @Groups("team")
+	 * @Groups("hero")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
