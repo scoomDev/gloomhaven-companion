@@ -41,9 +41,12 @@ class AuthController extends AbstractController
         $content = $request->getContent();
         $user = $serializer->deserialize($content, User::class, 'json');
 
+
         if ($this->em->getRepository(User::class)->findBy(['username' => $user->getUsername()])) return new JsonResponse(['error' => 'Ce nom d\'utilisateur est déjà utilisé']);
 
+        $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
         $user->setRoles(['ROLE_USER']);
+
 		$this->em->persist($user);
 		$this->em->flush();
 
