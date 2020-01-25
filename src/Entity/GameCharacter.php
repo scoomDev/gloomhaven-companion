@@ -40,6 +40,7 @@ class GameCharacter
 
     /**
 	 * @Groups("hero")
+	 * @Groups("team")
 	 * @Groups("game_characters")
      * @ORM\Column(type="text")
      */
