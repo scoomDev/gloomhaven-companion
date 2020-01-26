@@ -58,9 +58,17 @@ class GameCharacter
      */
     private $heroes;
 
+    /**
+     * @Groups("hero")
+     * @Groups("game_characters")
+     * @ORM\OneToMany(targetEntity="App\Entity\Perks", mappedBy="gameCharacter")
+     */
+    private $perks;
+
     public function __construct()
     {
         $this->heroes = new ArrayCollection();
+        $this->perks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -141,6 +149,37 @@ class GameCharacter
             // set the owning side to null (unless already changed)
             if ($hero->getGameCharacter() === $this) {
                 $hero->setGameCharacter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Perks[]
+     */
+    public function getPerks(): Collection
+    {
+        return $this->perks;
+    }
+
+    public function addPerk(Perks $perk): self
+    {
+        if (!$this->perks->contains($perk)) {
+            $this->perks[] = $perk;
+            $perk->setGameCharacter($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerk(Perks $perk): self
+    {
+        if ($this->perks->contains($perk)) {
+            $this->perks->removeElement($perk);
+            // set the owning side to null (unless already changed)
+            if ($perk->getGameCharacter() === $this) {
+                $perk->setGameCharacter(null);
             }
         }
 

@@ -1,0 +1,10 @@
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (1, 'Retirer quatre cartes [[icon-plus-zero]]', 1, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (2, 'Remplacer une carte [[icon-minus-one]] par une carte [[icon-plus-one]]', 3, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (3, 'Ajouter une carte [[icon-minu-two]] et deux carte [[icon-plus-two]]', 1, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (4, 'Ajouter une carte [[icon-plus-one]] IMMOBILISATION [[icon-immobilize]]', 2, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (5, 'Ajouter une carte [[icon-plus-two]] CONFUSION [[icon-muddle]]', 2, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (6, 'Ajouter deux cartes [[icon-redraw]] POUSSEE [[icon-push]] 2', 1, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (7, 'Ajouter deux cartes [[icon-redraw]] [[icon-earth]]', 2, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (8, 'Ajouter deux cartes [[icon-redraw]] [[icon-wind]]', 1, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (9, 'Ignorer les effets négatifs des objets', 1, 6);
+INSERT INTO gloom_api.perks (id, content, quantity, game_character_id) VALUES (10, 'Ignorer les effets négatifs des scénarios', 1, 6);
