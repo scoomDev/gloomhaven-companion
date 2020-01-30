@@ -76,6 +76,12 @@ class Hero
      */
     private $note;
 
+    /**
+     * @Groups("hero")
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $completedPerks = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -118,16 +124,16 @@ class Hero
     }
 
 	public function getObjects(): ?array
-    {
-        return $this->objects;
-    }
+             {
+                 return $this->objects;
+             }
 
 	public function setObjects(?array $objects): self
-    {
-        $this->objects = $objects;
-
-        return $this;
-    }
+             {
+                 $this->objects = $objects;
+         
+                 return $this;
+             }
 
     public function getGameCharacter(): ?GameCharacter
     {
@@ -173,6 +179,18 @@ class Hero
     public function setNote(?string $note): self
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getCompletedPerks(): ?array
+    {
+        return $this->completedPerks;
+    }
+
+    public function setCompletedPerks(?array $completedPerks): self
+    {
+        $this->completedPerks = $completedPerks;
 
         return $this;
     }
