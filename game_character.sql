@@ -1,3 +1,10 @@
-INSERT INTO gloom.game_character (id, name, bio, life, max_card) VALUES (7, 'elementalist', 'Lorem', '{"1": 6, "2":7, "3": 8, "4": 9, "5": 10, "6": 11, "7": 12, "8": 13, "9": 14}', 10);
-INSERT INTO gloom.game_character (id, name, bio, life, max_card) VALUES (8, 'quartermaster', 'Lorem', '{"1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 9);
-INSERT INTO gloom.game_character (id, name, bio, life, max_card) VALUES (9, 'sunkeeper', 'Lorem', '{"1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 11);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (1, 'spellweaver', 'Lorem', '{"1": 6, "2": 7, "3": 8, "4": 9, "5": 10, "6": 11, "7": 12, "8": 13, "9": 14}', 8);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (2, 'brute', 'Lorem', '{"1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 10);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (3, 'scoundrel', 'Lorem', '{"1": 8, "2": 9, "3": 11, "4": 12, "5": 14, "6": 15, "7": 17, "8": 18, "9": 20}', 9);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (4, 'tinkerer', 'Lorem', '{"1": 8, "2": 9, "3": 11, "4": 12, "5": 14, "6": 15, "7": 17, "8": 18, "9": 20}', 12);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (5, 'mindthief', 'lorem', '{"1": 6, "2": 7, "3": 8, "4": 9, "5": 10, "6": 11, "7": 12, "8": 13, "9": 14}', 10);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (6, 'cragheart', 'Lorem', '{"1": 10, "2":12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 11);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (7, 'elementalist', 'Lorem', '{"1": 6, "2":7, "3": 8, "4": 9, "5": 10, "6": 11, "7": 12, "8": 13, "9": 14}', 10);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (8, 'quartermaster', 'Lorem', '{"1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 9);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (9, 'sunkeeper', 'Lorem', '{"1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26}', 11);
+INSERT INTO gloom_api.game_character (id, name, bio, life, max_card) VALUES (10, 'summoner', 'Lorem', '{"1": 8, "2": 9, "3": 11, "4": 12, "5": 14, "6": 15, "7": 17, "8": 18, "9": 20}', 9);
