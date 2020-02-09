@@ -86,3 +86,14 @@ UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-redraw]] ETOURDIS
 UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-redraw]] AJOUTER UNE CIBLE [[icon-target]]', quantity = 1, game_character_id = 8 WHERE id = 86;
 UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-plus-zero]] Rafraîchir une carte objet', quantity = 3, game_character_id = 8 WHERE id = 87;
 UPDATE gloom_api.perks SET content = 'Ignorer les effets négatifs des objets et ajouter deux cartes [[icon-plus-one]]', quantity = 1, game_character_id = 8 WHERE id = 88;
+UPDATE gloom_api.perks SET content = 'Retirer deux cartes [[icon-minus-one]]', quantity = 1, game_character_id = 2 WHERE id = 89;
+UPDATE gloom_api.perks SET content = 'Remplacer une carte [[icon-minus-one]] par une carte [[icon-plus-one]]', quantity = 1, game_character_id = 2 WHERE id = 90;
+UPDATE gloom_api.perks SET content = 'Ajouter deux cartes [[icon-plus-one]]', quantity = 2, game_character_id = 2 WHERE id = 91;
+UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-plus-three]]', quantity = 1, game_character_id = 2 WHERE id = 92;
+UPDATE gloom_api.perks SET content = 'Ajouter trois cartes [[icon-redraw]] POUSSÉE [[icon-push]] 1', quantity = 2, game_character_id = 2 WHERE id = 93;
+UPDATE gloom_api.perks SET content = 'Ajouter deux cartes [[icon-redraw]] PERFORATION [[icon-pierce]] 3', quantity = 1, game_character_id = 2 WHERE id = 94;
+UPDATE gloom_api.perks SET content = 'Ajouter deux cartes [[icon-redraw]] ÉTOURDISSEMENT [[icon-stun]]', quantity = 2, game_character_id = 2 WHERE id = 95;
+UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-redraw]] DÉSARMEMENT [[icon-disarm]] et une carte [[icon-redraw]] CONFUSION [[icon-muddle]]', quantity = 1, game_character_id = 2 WHERE id = 96;
+UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-redraw]] AJOUTER UNE CIBLE [[icon-target]]', quantity = 2, game_character_id = 2 WHERE id = 97;
+UPDATE gloom_api.perks SET content = 'Ajouter une carte [[icon-plus-one]] Bouclier [[icon-shield]] 1, sur vous-même', quantity = 1, game_character_id = 2 WHERE id = 98;
+UPDATE gloom_api.perks SET content = 'Ignorer les effets négatifs des objets et ajouter une carte [[icon-plus-one]]', quantity = 1, game_character_id = 2 WHERE id = 99;
