@@ -1,0 +1,1 @@
+UPDATE gloom_api.team SET name = 'Les aventuriers des brumes', reputation = 8, achievements = '["Premier pas", "Les plans de Jekserah", "L''encasoir de Brisepierre", "L''injonction de la voix", "L''injonction de la Wyvern"]' WHERE id = 1;

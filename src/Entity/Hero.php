@@ -82,6 +82,13 @@ class Hero
      */
     private $completedPerks = [];
 
+    /**
+     * @Groups("hero")
+     * @Groups("team")
+     * @ORM\Column(type="boolean")
+     */
+    private $isRetired;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,16 +131,16 @@ class Hero
     }
 
 	public function getObjects(): ?array
-             {
-                 return $this->objects;
-             }
+                      {
+                          return $this->objects;
+                      }
 
 	public function setObjects(?array $objects): self
-             {
-                 $this->objects = $objects;
-         
-                 return $this;
-             }
+                      {
+                          $this->objects = $objects;
+                  
+                          return $this;
+                      }
 
     public function getGameCharacter(): ?GameCharacter
     {
@@ -191,6 +198,18 @@ class Hero
     public function setCompletedPerks(?array $completedPerks): self
     {
         $this->completedPerks = $completedPerks;
+
+        return $this;
+    }
+
+    public function getIsRetired(): ?bool
+    {
+        return $this->isRetired;
+    }
+
+    public function setIsRetired(bool $isRetired): self
+    {
+        $this->isRetired = $isRetired;
 
         return $this;
     }
